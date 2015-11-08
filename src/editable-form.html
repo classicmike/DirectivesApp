@@ -1,0 +1,7 @@
+<div>
+    <div class="editable-container">
+        <button ng-if="editable" ng-click="toggleEditable()">Save</button>
+        <button ng-if="!editable" ng-click="toggleEditable()">Edit</button>
+        <p contenteditable="{{ editable ? true : false }}"><ng-transclude></ng-transclude></p>
+    </div>
+</div>
