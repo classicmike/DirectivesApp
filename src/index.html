@@ -1,22 +1,36 @@
-<html ng-app="editableFormApp">
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
 <head>
-    <title>Editable Form App</title>
-    <meta charset="utf-8" />
-    <style>
-        [contenteditable]{
-
-        }
-        [contenteditable="true"] {
-            color: red;
-            border: 1px solid #ccc;
-        }
-    </style>
+    <meta charset="UTF-8">
+    <title>Document</title>
 </head>
+<script src="https://code.angularjs.org/1.2.9/angular.min.js"></script>
+<script>
+    angular.module('myApp', [])
+            .run(function($rootScope){
+                var $scope = $rootScope;
+                $scope.$watch('enabled', function(val) {
+                    console.log('You are now: ' + (val ? 'enabled' : 'disabled'));
+                });
+
+                //apply
+                $scope.$apply(function(){
+                    $scope.enabled = true;
+                });
+
+                //apply
+                $scope.$apply(function(){
+                    $scope.enabled = false;
+                });
+
+                //apply
+                $scope.$apply(function(){
+                    $scope.enabled = 1;
+                });
+            })
+</script>
 <body>
-<make-editable rendereditable="true">
-    <span class="span">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sem sem, porttitor et laoreet sed, scelerisque bibendum mi. Vivamus commodo condimentum massa dapibus pharetra. Nullam quis nulla erat. Aenean sed tortor urna. Ut lacinia massa bibendum felis aliquam tempor. Sed vel sem pulvinar, pulvinar neque ut, interdum sapien. Cras porta felis nec aliquet porttitor. Vestibulum placerat, eros quis ullamcorper vestibulum, lacus libero hendrerit quam, id dapibus ipsum felis et tortor. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;</span>
-</make-editable>
-<script src="lib/angular/angular.js"></script>
-<script src="editableFormApp.js"></script>
+<p ng-if="enabled">I am here because I'm enabled</p>
+<button ng-click="enabled=!enabled">Click Me!</button>
 </body>
 </html>
