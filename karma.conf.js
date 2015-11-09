@@ -15,11 +15,12 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      './src/lib/jquery/dist/jquery.min.js',
-      './src/lib/angular/angular.min.js',
-      './src/lib/angular-mocks/angular-mocks.js',
-      './src/*.js', // this will pick up both spec and app
-      './src/*.html' // for our directive templates
+        './src/lib/jquery/dist/jquery.min.js',
+        './src/lib/jquery-ui/jquery-ui.js',
+        './src/lib/angular/angular.min.js',
+        './src/lib/angular-mocks/angular-mocks.js',
+        './src/*.js', // this will pick up both spec and app
+        './src/*.html' // for our directive templates
     ],
 
 
